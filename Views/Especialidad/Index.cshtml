@@ -1,3 +1,5 @@
+@model IEnumerable<Turnos.Models.Especialidad>
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -10,21 +12,21 @@
         <table>
             <thead>
                 <tr>
-                    <th>Descripción</th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Descripcion)
+                    </th>
                 </tr>
             </thead>
             <tbody>
                 @* TODO: codigo para mostrar los registros de la base de datos *@
-                <tr>
-                    <td>
-                        Traumatólogo
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Cardiólogo
-                    </td>
-                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Descripcion)
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
     </body>
